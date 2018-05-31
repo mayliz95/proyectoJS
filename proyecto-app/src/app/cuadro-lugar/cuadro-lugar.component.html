@@ -1,0 +1,32 @@
+<div>
+  <mat-card>
+    <div class="row">
+      <div class="col-sm-6"><mat-card-title>Lugar 1</mat-card-title></div>
+      <div class="col-sm-6">
+        <mat-form-field style="width: 190px">
+          <mat-select placeholder="Unidad de Temperatura">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <div class="row">
+      <div class="col-sm-3">
+        <mat-card-subtitle>Temperatura</mat-card-subtitle>
+      </div>
+      <div class="col-sm-3">
+        <input style="width: 100px"  type="text" value={{temperatura}}>
+      </div>
+      <div class="col-sm-3">
+        <mat-card-subtitle>Color</mat-card-subtitle>
+      </div>
+      <div class="col-sm-3">
+        <input matInput type="color" style="width: 50px">
+      </div>
+    </div>
+  </mat-card>
+</div>
