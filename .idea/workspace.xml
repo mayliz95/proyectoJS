@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c7d968d-02df-43a9-8bbb-8809b069cab3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4c7d968d-02df-43a9-8bbb-8809b069cab3" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="cuadro-lugar.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proyecto-app/src/app/cuadro-lugar/cuadro-lugar.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state relative-caret-position="124">
+              <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -174,25 +172,24 @@
       <workItem from="1527603049366" duration="614000" />
       <workItem from="1527615168488" duration="4785000" />
       <workItem from="1527654558026" duration="162000" />
-      <workItem from="1527788045159" duration="5034000" />
+      <workItem from="1527788045159" duration="5676000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14909000" />
+    <option name="totallyTimeSpent" value="15551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23206443" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23206443" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32894737" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32894737" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -563,8 +560,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proyecto-app/src/app/cuadro-lugar/cuadro-lugar.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="124">
+          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
         </state>
       </provider>
     </entry>
