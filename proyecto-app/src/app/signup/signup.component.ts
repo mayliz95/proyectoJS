@@ -23,21 +23,22 @@ export class SignupComponent implements OnInit {
     {
       nombre: 'Avatar1',
       // urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_013.png'
-      urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_015.png'
+      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-boy-389cd1eb1d503149-512x512.png'
+
     },
     {
       nombre: 'Avatar2',
-      urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_015.png'
+      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-business-man-399587fe24739d5a-512x512.png'
     },
     {
       nombre: 'Avatar3',
       // urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_019.png'
-      urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_015.png'
+      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png'
     },
     {
       nombre: 'Avatar4',
       // urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_020.png'
-      urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_015.png'
+      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-girl-33d5bc8209527f81-512x512.png'
     }
   ];
 

@@ -1,46 +1,51 @@
-<h2>Registro</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <h2>Registro</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-  <div class="form-group">
-    <label for="nombre_usuario">Nombre Usuario</label>
-    <input class="form-control" id="nombre_usuario" type="text" formControlName="nombre_usuario" [ngClass]="{ 'is-invalid': submitted && f.nombre_usuario.errors }" />
-    <div *ngIf="submitted && f.nombre_usuario.errors" class="invalid-feedback">
-      <div *ngIf="f.nombre_usuario.errors.required">Se requier un nombre de usuario</div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="correo_usuario">Correo</label>
-    <input class="form-control" id="correo_usuario" type="text" formControlName="correo_usuario" [ngClass]="{ 'is-invalid': submitted && f.correo_usuario.errors }" />
-    <div *ngIf="submitted && f.correo_usuario.errors" class="invalid-feedback">
-      <div *ngIf="f.correo_usuario.errors.required">Se requier un correo</div>
-      <div *ngIf="f.correo_usuario.errors.email">Ingrese un correo valido </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="password_usuario">Contraseña</label>
-    <input class="form-control" id="password_usuario" type="password" formControlName="password_usuario" [ngClass]="{ 'is-invalid': submitted && f.password_usuario.errors }" />
-    <div *ngIf="submitted && f.password_usuario.errors" class="invalid-feedback">
-      <div *ngIf="f.password_usuario.errors.required">Se requier una contraseña</div>
-      <div *ngIf="f.password_usuario.errors.minlength">La contraseña debe tener minimo 6 caracteres</div>
-    </div>
-  </div>
-
-  <h4 class="form-group">
-    Escoge un avatar
-  </h4>
-
-  <div class="form-group">
-    <div class="row">
-      <div class="col-sm-3 text center" *ngFor="let avatar of arregloAvatar">
-        <img (click)="imagenSeleccionada" class="imagen_avatar" [src] = "avatar.urlImagen" alt="" style="opacity: 1; transform: scale(1); transition-duration: 400ms;">
+      <div class="form-group">
+        <label for="nombre_usuario">Nombre Usuario</label>
+        <input class="form-control" id="nombre_usuario" type="text" formControlName="nombre_usuario" [ngClass]="{ 'is-invalid': submitted && f.nombre_usuario.errors }" />
+        <div *ngIf="submitted && f.nombre_usuario.errors" class="invalid-feedback">
+          <div *ngIf="f.nombre_usuario.errors.required">Se requier un nombre de usuario</div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary btn-block">Register</button>
-  </div>
+      <div class="form-group">
+        <label for="correo_usuario">Correo</label>
+        <input class="form-control" id="correo_usuario" type="text" formControlName="correo_usuario" [ngClass]="{ 'is-invalid': submitted && f.correo_usuario.errors }" />
+        <div *ngIf="submitted && f.correo_usuario.errors" class="invalid-feedback">
+          <div *ngIf="f.correo_usuario.errors.required">Se requier un correo</div>
+          <div *ngIf="f.correo_usuario.errors.email">Ingrese un correo valido </div>
+        </div>
+      </div>
 
-</form>
+      <div class="form-group">
+        <label for="password_usuario">Contraseña</label>
+        <input class="form-control" id="password_usuario" type="password" formControlName="password_usuario" [ngClass]="{ 'is-invalid': submitted && f.password_usuario.errors }" />
+        <div *ngIf="submitted && f.password_usuario.errors" class="invalid-feedback">
+          <div *ngIf="f.password_usuario.errors.required">Se requier una contraseña</div>
+          <div *ngIf="f.password_usuario.errors.minlength">La contraseña debe tener minimo 6 caracteres</div>
+        </div>
+      </div>
+
+      <h4 class="form-group">
+        Escoge un avatar
+      </h4>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-3 text center" *ngFor="let avatar of arregloAvatar">
+            <img (click)="imagenSeleccionada" class="imagen_avatar" [src] = "avatar.urlImagen" alt="" style="opacity: 1; transform: scale(1); transition-duration: 400ms;">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary btn-block">Register</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
