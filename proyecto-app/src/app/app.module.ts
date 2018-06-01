@@ -10,11 +10,14 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from "./app-routing.module";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { GraficoTiempoRealComponent } from './grafico-tiempo-real/grafico-tiempo-real.component';
 @NgModule({
   declarations: [
     AppComponent,
     CuadroLugarComponent,
-    LoginComponent
+    LoginComponent,
+    GraficoTiempoRealComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import {AppRoutingModule} from "./app-routing.module";
     MatSelectModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgxChartsModule,
     AppRoutingModule
   ],
   providers: [],
