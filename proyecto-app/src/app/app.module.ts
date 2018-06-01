@@ -9,6 +9,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {AppRoutingModule} from "./app-routing.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,8 +20,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     MatCardModule,
     MatInputModule,
-    MatSelectModule, BrowserAnimationsModule,
-    ReactiveFormsModule
+    MatSelectModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
