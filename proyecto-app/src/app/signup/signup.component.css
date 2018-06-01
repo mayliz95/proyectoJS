@@ -1,0 +1,19 @@
+.contenedr-registro{
+  border-color: #bbbbbb;
+}
+.titulo{
+  text-align:center;
+}
+
+.boton_reg{
+  padding: 15px;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imagen_avatar{
+  /*height: 8vw;*/
+  width: 100%;
+  cursor: pointer;
+}
