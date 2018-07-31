@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-
   attributes: {
     nombre: {
       type: 'string',
@@ -14,7 +13,7 @@ module.exports = {
     },
     lugares: {
       collection: 'lugar',
-      via: 'tipolugarIdFK'
+      via: 'id_tipolugar'
     }
   },
 };
