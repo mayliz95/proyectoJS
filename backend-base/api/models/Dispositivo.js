@@ -17,6 +17,5 @@ module.exports = {
       via: 'id_dispositivo'
     }
   },
-
 };
 

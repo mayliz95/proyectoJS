@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CuadroLugarComponent implements OnInit {
 
+  nombreLugar = 'Casa';
+  nombreDispositivo = '0001-3';
   constructor() {}
 
   foods = [

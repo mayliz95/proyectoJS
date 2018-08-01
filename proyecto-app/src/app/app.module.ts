@@ -13,19 +13,25 @@ import {AppRoutingModule} from "./app-routing.module";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { GraficoTiempoRealComponent } from './grafico-tiempo-real/grafico-tiempo-real.component';
 import { SignupComponent } from './signup/signup.component';
+import { BarraSuperiorComponent } from './barra-superior/barra-superior.component';
+import {MatButtonModule, MatIcon, MatIconModule, MatToolbarModule} from "@angular/material";
 @NgModule({
   declarations: [
     AppComponent,
     CuadroLugarComponent,
     LoginComponent,
     GraficoTiempoRealComponent,
-    SignupComponent
+    SignupComponent,
+    BarraSuperiorComponent
   ],
   imports: [
     BrowserModule,
     MatCardModule,
     MatInputModule,
     MatSelectModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgxChartsModule,
