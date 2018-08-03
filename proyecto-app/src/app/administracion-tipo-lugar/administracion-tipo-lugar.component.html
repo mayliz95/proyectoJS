@@ -1,0 +1,28 @@
+<app-barra-superior></app-barra-superior>
+<br>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Nombre Tipo Lugar</th>
+    <th>Accion</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tipoLugar of tiposLugar; let i = index">
+    <td>
+      <input [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}" />
+    </td>
+    <td>
+      <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newTipoLugar.nombre" name="newAttributeCode" />
+    </td>
+    <td>
+      <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
