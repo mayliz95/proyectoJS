@@ -1,5 +1,83 @@
 <app-barra-superior></app-barra-superior>
-<div style="padding-top: 50px">
+<br>
+<br>
+<!---------------------------------Select de tipo lugar--------------------->
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <form>
+      <mat-form-field style="width: 100%; font-size: 16px">
+        <mat-select placeholder="Tipo de Lugar" [formControl]="tipoLugarSeleccionado" name="tipoLugar">
+          <mat-option *ngFor="let tipoLugar of tiposLugar" [value]="tipoLugar">
+            {{ tipoLugar.nombre}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="tipoLugarSeleccionado.hasError('required')">Por favor selecciona un tipo de lugar</mat-error>
+        <br>
+        <br>
+        <mat-hint style="width: 100%">
+          <br>
+          <div *ngFor="let lugar of tipoLugarSeleccionado.value.lugares">
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                <div>
+                  <mat-toolbar color="primary" style="height: 75px">
+                    <div class="row" style="width: 100%">
+                      <div class="col-sm-5" style="padding-top: 22px">
+                        <label style="font-size: 17px">{{lugar.nombre}}</label>
+                      </div>
+                      <div class="col-sm-3"></div>
+                      <!--div class="col-sm-4" style="padding-top: 14px">
+                        <mat-form-field style="width: 100%; font-size: 16px">
+                          <mat-select placeholder="Unidad de Temperatura">
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                              {{ food.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div-->
+                    </div>
+                  </mat-toolbar>
+                  <div *ngFor="let dispositivo of dispositivos">
+                    <mat-card class="mat-elevation-z0" style="border-style: solid; border-width: 1px; border-color: #3f51b5">
+                      <mat-card-title style="font-size: 18px">
+                        {{dispositivo.nombre}}
+                      </mat-card-title>
+                      <mat-card-content>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <mat-card-subtitle>Temperatura</mat-card-subtitle>
+                          </div>
+                          <div class="col-sm-3">
+                            <input style="width: 100px"  type="text" value={{dispositivo.temperatura}}>
+                          </div>
+                          <div class="col-sm-3">
+                            <mat-card-subtitle>Color</mat-card-subtitle>
+                          </div>
+                          <div class="col-sm-3">
+                            <!--button mat-raised-button color="primary" class="mat-elevation-z0"></button-->
+                            <input matInput type="color" style="width: 50px;" value="#292B70" *ngIf="dispositivo.temperatura <= 30">
+                            <input matInput type="color" style="width: 50px;" value="#9B101A" *ngIf="dispositivo.temperatura > 30">
+                          </div>
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-1"></div>
+            </div>
+            <br>
+          </div>
+        </mat-hint>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+
+<!--div *ngFor="let lugar of lugares">
   <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
@@ -7,7 +85,7 @@
         <mat-toolbar color="primary" style="height: 75px">
           <div class="row" style="width: 100%">
             <div class="col-sm-5" style="padding-top: 22px">
-              <label style="font-size: 17px">Lugar {{nombreLugar}} / Dispositivo {{nombreDispositivo}}</label>
+              <label style="font-size: 17px">{{lugar.nombre}}</label>
             </div>
             <div class="col-sm-3"></div>
             <div class="col-sm-4" style="padding-top: 14px">
@@ -21,26 +99,33 @@
             </div>
           </div>
         </mat-toolbar>
-        <mat-card class="mat-elevation-z0" style="border-style: solid; border-width: 1px; border-color: #3f51b5">
-          <mat-card-content>
-            <div class="row">
-              <div class="col-sm-3">
-                <mat-card-subtitle>Temperatura</mat-card-subtitle>
+        <div *ngFor="let dispositivo of dispositivos">
+          <mat-card class="mat-elevation-z0" style="border-style: solid; border-width: 1px; border-color: #3f51b5">
+            <mat-card-title style="font-size: 18px">
+              {{dispositivo.nombre}}
+            </mat-card-title>
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-3">
+                  <mat-card-subtitle>Temperatura</mat-card-subtitle>
+                </div>
+                <div class="col-sm-3">
+                  <input style="width: 100px"  type="text" value={{temperatura}}>
+                </div>
+                <div class="col-sm-3">
+                  <mat-card-subtitle>Color</mat-card-subtitle>
+                </div>
+                <div class="col-sm-3">
+                  <input matInput type="color" style="width: 50px">
+                </div>
               </div>
-              <div class="col-sm-3">
-                <input style="width: 100px"  type="text" value={{temperatura}}>
-              </div>
-              <div class="col-sm-3">
-                <mat-card-subtitle>Color</mat-card-subtitle>
-              </div>
-              <div class="col-sm-3">
-                <input matInput type="color" style="width: 50px">
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </div>
     <div class="col-sm-2"></div>
   </div>
-</div>
+  <br>
+</div-->
+
