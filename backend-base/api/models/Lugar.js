@@ -15,6 +15,9 @@ module.exports = {
     id_tipolugar: {
       model: 'tipolugar'
     },
+    id_usuario: {
+      model: 'usuario'
+    },
     dispositivoLugares: {
       collection: 'dispositivolugar',
       via: 'id_lugar'
