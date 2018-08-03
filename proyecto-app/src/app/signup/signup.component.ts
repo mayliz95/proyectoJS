@@ -1,6 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
+import {ErrorStateMatcher} from "@angular/material";
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-signup',
@@ -8,72 +15,37 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  registerForm: FormGroup;
-  loading = false;
-  submitted = false;
 
-  idusuario:number;
-  nombreUsuario: String;
-  correo: String;
-  password: String;
-  urlImagenAvatar: String;
-  dioClickEnRegistro: EventEmitter<boolean> = new EventEmitter();
+  nombreControl = new FormControl('', [Validators.required]);
+  correoControl = new FormControl('', [Validators.required, Validators.email,]);
+  contrasenaControl = new FormControl('', [Validators.required]);
+  matcher = new MyErrorStateMatcher();
 
-  arregloAvatar = [
-    {
-      nombre: 'Avatar1',
-      // urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_013.png'
-      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-boy-389cd1eb1d503149-512x512.png'
-
-    },
-    {
-      nombre: 'Avatar2',
-      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-business-man-399587fe24739d5a-512x512.png'
-    },
-    {
-      nombre: 'Avatar3',
-      // urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_019.png'
-      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png'
-    },
-    {
-      nombre: 'Avatar4',
-      // urlImagen: 'https://assets.nflxext.com/ffe/profiles/avatars_v2/320x320/PICON_020.png'
-      urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-girl-33d5bc8209527f81-512x512.png'
-    }
-  ];
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() {
+  }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      nombre_usuario: ['', [Validators.required]],
-      correo_usuario: ['', [Validators.required, Validators.email]],
-      password_usuario: ['', [Validators.required, Validators.minLength(6)]]
-    });
-
   }
 
-  get f() { return this.registerForm.controls; }
+  ingresar() {
+    /*this._usuarioService.getUsuariosPorNombre(this.nombre, this.contrasena).subscribe(
+      (result: any) => {
+        this.respuesta = result;
+        console.log(this.respuesta);
 
-  hizoClickEnRegistrarse() {
-    this.dioClickEnRegistro.emit(true);
+        if (this.respuesta.respuesta === 'Aceptado') {
+          const url = ['/home', this.respuesta.id];
+          this._router.navigate(url);
+        }else {
+          console.log('Ñoooo!!');
+        }
+      }
+    );*/
+    console.log(this.nombreControl.value + " " + this.correoControl.value + " " + this.contrasenaControl.value);
   }
 
-  onSubmit() {
-    this.submitted = true;
+  limpiar() {
 
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-
-    this.loading = true;
-
-    this.nombreUsuario = this.registerForm.get('nombre_usuario').value;
-    this.correo = this.registerForm.get('correo_usuario').value;
-    this.password = this.registerForm.get('password_usuario').value;
-    console.log("nombreUsuario correo password", this.nombreUsuario, this.correo, this.password);
-    console.log("Registrado correctamente");
   }
 }
 
