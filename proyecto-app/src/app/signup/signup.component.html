@@ -1,51 +1,58 @@
 <div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
-    <h2>Registro</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-
-      <div class="form-group">
-        <label for="nombre_usuario">Nombre Usuario</label>
-        <input class="form-control" id="nombre_usuario" type="text" formControlName="nombre_usuario" [ngClass]="{ 'is-invalid': submitted && f.nombre_usuario.errors }" />
-        <div *ngIf="submitted && f.nombre_usuario.errors" class="invalid-feedback">
-          <div *ngIf="f.nombre_usuario.errors.required">Se requier un nombre de usuario</div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="correo_usuario">Correo</label>
-        <input class="form-control" id="correo_usuario" type="text" formControlName="correo_usuario" [ngClass]="{ 'is-invalid': submitted && f.correo_usuario.errors }" />
-        <div *ngIf="submitted && f.correo_usuario.errors" class="invalid-feedback">
-          <div *ngIf="f.correo_usuario.errors.required">Se requier un correo</div>
-          <div *ngIf="f.correo_usuario.errors.email">Ingrese un correo valido </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="password_usuario">Contraseña</label>
-        <input class="form-control" id="password_usuario" type="password" formControlName="password_usuario" [ngClass]="{ 'is-invalid': submitted && f.password_usuario.errors }" />
-        <div *ngIf="submitted && f.password_usuario.errors" class="invalid-feedback">
-          <div *ngIf="f.password_usuario.errors.required">Se requier una contraseña</div>
-          <div *ngIf="f.password_usuario.errors.minlength">La contraseña debe tener minimo 6 caracteres</div>
-        </div>
-      </div>
-
-      <h4 class="form-group">
-        Escoge un avatar
-      </h4>
-
-      <div class="form-group">
-        <div class="row">
-          <div class="col-sm-3 text center" *ngFor="let avatar of arregloAvatar">
-            <img (click)="imagenSeleccionada" class="imagen_avatar" [src] = "avatar.urlImagen" alt="" style="opacity: 1; transform: scale(1); transition-duration: 400ms;">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <br>
+    <br>
+    <mat-toolbar color="primary">
+      REGISTRAR
+    </mat-toolbar>
+    <mat-card class="mat-elevation-z0" style="border-style: solid; border-width: 1px; border-color: #f5f5f5">
+      <mat-card-content>
+        <form class="registro">
+          <div>
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Nombre Usuario" name="nombre" [formControl]="nombreControl" [errorStateMatcher]="matcher">
+              <mat-error *ngIf="nombreControl.hasError('required')">
+                El nombre de usuario es <strong>necesario</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Correo" name="correo" [formControl]="correoControl" [errorStateMatcher]="matcher">
+              <mat-error *ngIf="correoControl.hasError('email') && !correoControl.hasError('required')">
+                Ingrese un correo válido
+              </mat-error>
+              <mat-error *ngIf="correoControl.hasError('required')">
+                El correo es <strong>necesario</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Contraseña" type="password" name="contrasena" [formControl]="contrasenaControl" [errorStateMatcher]="matcher">
+              <mat-error *ngIf="contrasenaControl.hasError('required')">
+                La contraseña es <strong>necesario</strong>
+              </mat-error>
+            </mat-form-field>
+            <!--mat-form-field style="width: 100%">
+              <!--input matInput placeholder="Avatar" name="avatar" [(ngModel)]="avatar">
+              <div class="row">
+                <div class="col-sm-3 text center" *ngFor="let avatar of arregloAvatar">
+                  <img (click)="imagenSeleccionada" class="imagen_avatar" [src] = "avatar.urlImagen" alt="" style="opacity: 1; transform: scale(1); transition-duration: 400ms;">
+                </div>
+              </div>
+            </mat-form-field-->
           </div>
+        </form>
+      </mat-card-content>
+      <div class="row">
+        <div class="col-sm-6">
+          <button mat-raised-button color="primary" style="box-sizing: content-box; text-align: center" (click)="ingresar()">Registrar</button>
+        </div>
+        <div class="col-sm-6">
+          <button mat-raised-button color="primary" style="box-sizing: content-box; text-align: center" (click)="ingresar()">Cancelar</button>
         </div>
       </div>
 
-      <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary btn-block">Register</button>
-      </div>
-    </form>
+    </mat-card>
   </div>
-  <div class="col-sm-3"></div>
+  <div class="col-sm-4"></div>
 </div>
