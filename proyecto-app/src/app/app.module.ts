@@ -15,6 +15,7 @@ import { GraficoTiempoRealComponent } from './grafico-tiempo-real/grafico-tiempo
 import { SignupComponent } from './signup/signup.component';
 import { BarraSuperiorComponent } from './barra-superior/barra-superior.component';
 import {MatButtonModule, MatIcon, MatIconModule, MatToolbarModule} from "@angular/material";
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import {MatButtonModule, MatIcon, MatIconModule, MatToolbarModule} from "@angula
     ReactiveFormsModule,
     NgxChartsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
