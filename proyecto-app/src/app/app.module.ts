@@ -6,16 +6,18 @@ import { CuadroLugarComponent } from './cuadro-lugar/cuadro-lugar.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { GraficoTiempoRealComponent } from './grafico-tiempo-real/grafico-tiempo-real.component';
 import { SignupComponent } from './signup/signup.component';
 import { BarraSuperiorComponent } from './barra-superior/barra-superior.component';
 import {MatButtonModule, MatIcon, MatIconModule, MatToolbarModule} from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
+import { AdministracionTipoLugarComponent } from './administracion-tipo-lugar/administracion-tipo-lugar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     GraficoTiempoRealComponent,
     SignupComponent,
-    BarraSuperiorComponent
+    BarraSuperiorComponent,
+    AdministracionTipoLugarComponent
   ],
   imports: [
     BrowserModule,
