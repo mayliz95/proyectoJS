@@ -20,6 +20,7 @@ import { AdministracionTipoLugarComponent } from './administracion-tipo-lugar/ad
 import { AdministracionLugarComponent } from './administracion-lugar/administracion-lugar.component';
 import { AdministracionDispositivoComponent } from './administracion-dispositivo/administracion-dispositivo.component';
 import { HomeComponent } from './home/home.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeComponent } from './home/home.component';
     AdministracionTipoLugarComponent,
     AdministracionLugarComponent,
     AdministracionDispositivoComponent,
-    HomeComponent
+    HomeComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

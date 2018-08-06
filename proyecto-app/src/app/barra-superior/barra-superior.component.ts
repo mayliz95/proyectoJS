@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-barra-superior',
@@ -7,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraSuperiorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) {}
 
   ngOnInit() {
+  }
+
+  irAugar() {
+    const url = ['/lugar'];
+    this._router.navigate(url);
+  }
+  irAHome() {
+    const url = ['/home'];
+    this._router.navigate(url);
+  }
+  irAEstadisTicas() {
+    //const url = ['/'];
+    //this._router.navigate(url);
+  }
+  salir() {
+
+  }
+  irAConfiguracionTipoLugar() {
+    const url = ['/admtipolugar'];
+    this._router.navigate(url);
+  }
+  irAConfiguracionLugar() {
+    const url = ['/admlugar'];
+    this._router.navigate(url);
+  }
+  irAConfiguracionDispositivo() {
+    const url = ['/admdispositivo'];
+    this._router.navigate(url);
   }
 
 }
