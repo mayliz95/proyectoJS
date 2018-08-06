@@ -17,6 +17,8 @@ import { BarraSuperiorComponent } from './barra-superior/barra-superior.componen
 import {MatButtonModule, MatIcon, MatIconModule, MatToolbarModule} from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
 import { AdministracionTipoLugarComponent } from './administracion-tipo-lugar/administracion-tipo-lugar.component';
+import { AdministracionLugarComponent } from './administracion-lugar/administracion-lugar.component';
+import { AdministracionDispositivoComponent } from './administracion-dispositivo/administracion-dispositivo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AdministracionTipoLugarComponent } from './administracion-tipo-lugar/ad
     GraficoTiempoRealComponent,
     SignupComponent,
     BarraSuperiorComponent,
-    AdministracionTipoLugarComponent
+    AdministracionTipoLugarComponent,
+    AdministracionLugarComponent,
+    AdministracionDispositivoComponent
   ],
   imports: [
     BrowserModule,

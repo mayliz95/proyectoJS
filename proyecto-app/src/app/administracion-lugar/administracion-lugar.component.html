@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
-    <h1>Tipo Lugar</h1>
+    <h1>Lugar</h1>
   </div>
   <div class="col-sm-4"></div>
 </div>
@@ -13,12 +13,16 @@
     <table class="table table-striped table-bordered">
       <thead>
       <tr>
-        <th>Nombre Tipo Lugar</th>
+        <th>Nombre TipoLugar</th>
+        <th>Nombre Lugar</th>
         <th>Accion</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let tipoLugar of tiposLugar; let i = index">
+        <td>
+          <input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/>
+        </td>
         <td>
           <input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/>
         </td>
@@ -29,6 +33,10 @@
       <tr>
         <td>
           <input matInput class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newTipoLugar.nombre"
+                 name="newAttributeCode"/>
+        </td>
+        <td>
+          <input matInput class="form-control" type="text" id="newAttributeCodeName" [(ngModel)]="newTipoLugar.nombre"
                  name="newAttributeCode"/>
         </td>
         <td>

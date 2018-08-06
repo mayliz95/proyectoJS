@@ -51,7 +51,7 @@ module.exports.datastores = {
     adapter: 'sails-mysql',
     url: 'mysql://root:root@localhost:3306/proyectojs',
     //host: 'aplicacioneswebjs.mysql.database.azure.com:3306',
-    //insecureAuth: true,
+    insecureAuth: true,
     //url: 'mysql://jeffersoinpm@aplicacioneswebjs:Aplicacionesweb123@aplicacioneswebjs.mysql.database.azure.com:3306/js-base',
   },
 };
