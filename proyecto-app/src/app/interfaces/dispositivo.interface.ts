@@ -1,5 +1,8 @@
+import {DispositivoLugar} from "./dispositivoLugar";
+
 export interface DispositivoInterface {
-  idDispositivo: number;
-  nombreDispositivo: string;
-  idUsuario: number;
+  id: number;
+  nombre: string;
+  id_usuario: number;
+  dispositivoLugares: DispositivoLugar[];
 }

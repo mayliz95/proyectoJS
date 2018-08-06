@@ -1,6 +1,6 @@
 export interface LugarInterface {
-  idLugar: number;
+  id: number;
   nombreLugar: string;
-  idUsuario: number;
-  idTipoLugar: number;
+  id_usuario: number;
+  id_tipolugar: number;
 }

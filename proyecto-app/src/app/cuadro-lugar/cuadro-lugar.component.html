@@ -5,11 +5,17 @@
 <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-8">
+    <div *ngFor="let usuario of usuarios">
+      <button mat-stroked-button (click)="loguearUsuario(usuario)">
+        {{usuario.nombreUsuario}}
+      </button>
+    </div>
+    <br>
     <form>
       <mat-form-field style="width: 100%; font-size: 16px">
         <mat-select placeholder="Tipo de Lugar" [formControl]="tipoLugarSeleccionado" name="tipoLugar">
-          <mat-option *ngFor="let tipoLugar of tiposLugar" [value]="tipoLugar">
-            {{ tipoLugar.nombre}}
+          <mat-option *ngFor="let tipoLugar of tiposLugar" [value]="tipoLugar" c>
+            {{tipoLugar.nombre}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="tipoLugarSeleccionado.hasError('required')">Por favor selecciona un tipo de lugar</mat-error>
@@ -39,30 +45,33 @@
                       </div-->
                     </div>
                   </mat-toolbar>
-                  <div *ngFor="let dispositivo of dispositivos">
-                    <mat-card class="mat-elevation-z0" style="border-style: solid; border-width: 1px; border-color: #3f51b5">
-                      <mat-card-title style="font-size: 18px">
-                        {{dispositivo.nombre}}
-                      </mat-card-title>
-                      <mat-card-content>
-                        <div class="row">
-                          <div class="col-sm-3">
-                            <mat-card-subtitle>Temperatura</mat-card-subtitle>
+                  <div *ngFor="let dispositivo of dispositivosPrueba">
+                    <div *ngIf="lugar.id === getIdLugarDispositivoLugar(dispositivo.dispositivoLugares, lugar.id)"
+                         (mousemove)="obtenerUltimaTemperatura(lugar.id, dispositivo.id)">
+                      <mat-card class="mat-elevation-z0" style="border-style: solid; border-width: 1px; border-color: #3f51b5">
+                        <mat-card-title style="font-size: 18px">
+                          {{dispositivo.nombre}}
+                        </mat-card-title>
+                        <mat-card-content>
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <mat-card-subtitle>Temperatura</mat-card-subtitle>
+                            </div>
+                            <div class="col-sm-3">
+                              <input style="width: 100px"  type="text" value={{temperatura}}>
+                            </div>
+                            <div class="col-sm-3">
+                              <mat-card-subtitle>Color</mat-card-subtitle>
+                            </div>
+                            <div class="col-sm-3">
+                              <!--button mat-raised-button color="primary" class="mat-elevation-z0"></button-->
+                              <input matInput type="color" style="width: 50px;" value="#292B70" *ngIf="temperatura <= 30">
+                              <input matInput type="color" style="width: 50px;" value="#9B101A" *ngIf="temperatura > 30">
+                            </div>
                           </div>
-                          <div class="col-sm-3">
-                            <input style="width: 100px"  type="text" value={{dispositivo.temperatura}}>
-                          </div>
-                          <div class="col-sm-3">
-                            <mat-card-subtitle>Color</mat-card-subtitle>
-                          </div>
-                          <div class="col-sm-3">
-                            <!--button mat-raised-button color="primary" class="mat-elevation-z0"></button-->
-                            <input matInput type="color" style="width: 50px;" value="#292B70" *ngIf="dispositivo.temperatura <= 30">
-                            <input matInput type="color" style="width: 50px;" value="#9B101A" *ngIf="dispositivo.temperatura > 30">
-                          </div>
-                        </div>
-                      </mat-card-content>
-                    </mat-card>
+                        </mat-card-content>
+                      </mat-card>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -77,7 +86,7 @@
   <div class="col-sm-2"></div>
 </div>
 
-<!--div *ngFor="let lugar of lugares">
+<!--div *ngFor="let lugar of lugaresDeUsuario">
   <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">

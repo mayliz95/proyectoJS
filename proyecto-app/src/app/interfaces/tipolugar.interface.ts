@@ -1,4 +1,7 @@
+import {LugarInterface} from "./lugar.interface";
+
 export interface TipolugarInterface {
-  idTipoLugar: number;
+  id: number;
   nombre: string;
+  lugares: LugarInterface[];
 }
