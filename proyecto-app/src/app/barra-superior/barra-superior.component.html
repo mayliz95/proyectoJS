@@ -12,13 +12,18 @@
   </span>
   <span>
     <button mat-raised-button color="primary" class="mat-elevation-z0">
-      Tiempo Real
+      Estadísticas
     </button>
   </span>
   <span>
-    <button mat-raised-button color="primary" class="mat-elevation-z0">
-      Estadísticas
-    </button>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <!--button mat-raised-button color="primary" class="mat-elevation-z0">
+      Configuración
+    </button-->
   </span>
   <span>
     <button mat-raised-button color="primary" class="mat-elevation-z0">

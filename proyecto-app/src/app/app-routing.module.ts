@@ -7,9 +7,11 @@ import {SignupComponent} from './signup/signup.component';
 import {AdministracionTipoLugarComponent} from './administracion-tipo-lugar/administracion-tipo-lugar.component';
 import {AdministracionLugarComponent} from "./administracion-lugar/administracion-lugar.component";
 import {AdministracionDispositivoComponent} from "./administracion-dispositivo/administracion-dispositivo.component";
+import {HomeComponent} from "./home/home.component";
 
 
 const routes: Routes = [
+  {path: 'home', component: HomeComponent},
   {path: 'lugar', component: CuadroLugarComponent},
   {path: 'admtipolugar', component: AdministracionTipoLugarComponent},
   {path: 'login', component: LoginComponent},

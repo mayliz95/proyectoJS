@@ -14,11 +14,12 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { GraficoTiempoRealComponent } from './grafico-tiempo-real/grafico-tiempo-real.component';
 import { SignupComponent } from './signup/signup.component';
 import { BarraSuperiorComponent } from './barra-superior/barra-superior.component';
-import {MatButtonModule, MatIcon, MatIconModule, MatToolbarModule} from "@angular/material";
+import {MatButtonModule, MatIcon, MatIconModule, MatMenu, MatMenuModule, MatToolbarModule} from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
 import { AdministracionTipoLugarComponent } from './administracion-tipo-lugar/administracion-tipo-lugar.component';
 import { AdministracionLugarComponent } from './administracion-lugar/administracion-lugar.component';
 import { AdministracionDispositivoComponent } from './administracion-dispositivo/administracion-dispositivo.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdministracionDispositivoComponent } from './administracion-dispositivo
     BarraSuperiorComponent,
     AdministracionTipoLugarComponent,
     AdministracionLugarComponent,
-    AdministracionDispositivoComponent
+    AdministracionDispositivoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import { AdministracionDispositivoComponent } from './administracion-dispositivo
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
