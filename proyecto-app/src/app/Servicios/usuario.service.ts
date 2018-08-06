@@ -1,9 +1,10 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {UsuarioInterface} from "../interfaces/usuario.interface";
 
 @Injectable()
 export class UsuarioService {
-
+  public static usuarioLogueado:UsuarioInterface;
   constructor(private http: HttpClient){
   }
 
@@ -26,5 +27,11 @@ export class UsuarioService {
         correo:email,
         avatar:avatarURL,
         contraseña:password},{headers: header});
+  }
+  getUsuario(email){
+    let header=UsuarioService.getCommonHeaders();
+    return this.http.get('http://localhost:1337/usuario',{params:{
+        correo:email
+      }})
   }
 }
