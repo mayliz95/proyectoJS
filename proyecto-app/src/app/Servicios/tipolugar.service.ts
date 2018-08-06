@@ -1,11 +1,9 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {Usuario} from "../interfaces/usuario";
+import {TipolugarInterface} from "../interfaces/tipolugar.interface";
 
 @Injectable()
-export class UsuarioService {
-
-  static usuarioLogeado: Usuario;
+export class TipolugarService {
 
   constructor(private http: HttpClient){
   }
@@ -18,11 +16,11 @@ export class UsuarioService {
     headers.append("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin, Access-Control-Allow-Methods");
     return headers;
   }
-  getUsuarioPorId(idUsuario) {
-    let header = UsuarioService.getCommonHeaders();
-    return this.http.get("http://localhost:1337/usuario/" + idUsuario,{headers: header});
+ getTipoLugarPorId(idTipoLugar) {
+    let header = TipolugarService.getCommonHeaders();
+    return this.http.get("http://localhost:1337/tipolugar/" + idTipoLugar,{headers: header});
   }
-  getUsuarios() {
+  /*getUsuarios() {
     let header = UsuarioService.getCommonHeaders();
     return this.http.get("http://localhost:1337/usuario",{headers: header});
   }
@@ -33,5 +31,5 @@ export class UsuarioService {
         correo:email,
         avatar:avatarURL,
         contraseña:password},{headers: header});
-  }
+  }*/
 }
