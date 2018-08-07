@@ -10,16 +10,16 @@
       Lugares
     </button>
   </span>
-  <span>
+  <!--span>
     <button mat-raised-button color="primary" class="mat-elevation-z0">
       Estadísticas
     </button>
-  </span>
+  </span-->
   <span>
     <button mat-button [matMenuTriggerFor]="menu">Configuración</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item style="font-size: 14px" (click)="irAConfiguracionTipoLugar()">Tipo Lugar</button>
-      <button mat-menu-item style="font-size: 14px" (click)="irAConfiguracionLugar()">Lugar</button>
+      <!--button mat-menu-item style="font-size: 14px" (click)="irAConfiguracionLugar()">Lugar</button-->
       <button mat-menu-item style="font-size: 14px" (click)="irAConfiguracionDispositivo()">Dispositivo</button>
     </mat-menu>
     <!--button mat-raised-button color="primary" class="mat-elevation-z0">
@@ -27,7 +27,7 @@
     </button-->
   </span>
   <span>
-    <button mat-raised-button color="primary" class="mat-elevation-z0">
+    <button mat-raised-button color="primary" class="mat-elevation-z0" (click)="salir()">
       Salir
     </button>
   </span>

@@ -10,12 +10,14 @@ import {DispositivoLugarService} from "../Servicios/dispositivoLugar.service";
 import {DispositivoLugar} from "../interfaces/dispositivoLugar";
 import {LugarInterface} from "../interfaces/lugar.interface";
 import {UsuarioInterface} from "../interfaces/usuario.interface";
+import {TemperaturaService} from "../Servicios/temperatura.service";
+import {Temperatura} from "../interfaces/temperatura";
 
 @Component({
   selector: 'app-cuadro-lugar',
   templateUrl: './cuadro-lugar.component.html',
   styleUrls: ['./cuadro-lugar.component.css'],
-  providers: [UsuarioService, TipolugarService, DispositivoService, DispositivoLugarService]
+  providers: [UsuarioService, TipolugarService, DispositivoService, DispositivoLugarService, TemperaturaService]
 })
 export class CuadroLugarComponent implements OnInit {
 
@@ -27,13 +29,14 @@ export class CuadroLugarComponent implements OnInit {
   dispositivoLugares: DispositivoLugar[];
   tiposLugar: TipolugarInterface[];
   tipoLugarSeleccionado = new FormControl('', [Validators.required]);
-  temperatura;
+  temperatura: number;
   color = "";
 
   constructor(private _usuarioService: UsuarioService,
               private _tipolugarService: TipolugarService,
               private _dispositivoService: DispositivoService,
-              private _dispositivoLugarService: DispositivoLugarService) {}
+              private _dispositivoLugarService: DispositivoLugarService,
+              private _temperaturaServic: TemperaturaService) {}
 
   ngOnInit() {
     /*this._usuarioService.getUsuarios().subscribe(
@@ -77,6 +80,7 @@ export class CuadroLugarComponent implements OnInit {
     });
     this.dispositivosPrueba = auxDispositivos;
     this.dispositivoLugares = aux;
+    //console.log("dispoPrueba", this.dispositivosPrueba);
   }
 
   obtenerTipoLugarPorUsuario() {
@@ -103,16 +107,21 @@ export class CuadroLugarComponent implements OnInit {
     return aux;
   } //Funciona Bien
 
-  obtenerUltimaTemperatura(idLugar, idDispositivo) {
-    let dispositivoLugar: DispositivoLugar;
-    this.dispositivoLugares.forEach(function (element) {
-      let lugar: any = element.id_lugar;
-      var dispositivo: any =  element.id_dispositivo;
-      if(lugar.id === idLugar&&dispositivo.id === idDispositivo){
-        dispositivoLugar = element;
+  obtenerUltimaTemperatura(dispositivo: DispositivoInterface, idLugar) {
+    let idDispoLugar: number;
+    let temperatura: Temperatura;
+    let serviceTemperatura: TemperaturaService = this._temperaturaServic;
+    dispositivo.dispositivoLugares.forEach( function (element) {
+      if(element.id_lugar === idLugar){
+        idDispoLugar = element.id;
+        console.log(idDispoLugar);
+        serviceTemperatura.getTemperaturaPorIdDispositivo(idDispoLugar).subscribe(
+          (result: Temperatura[]) => {
+            TemperaturaService.temperaturaFinal = result[0].valorTemperatura;
+          }
+        );
       }
     });
-    var dim = dispositivoLugar.temperaturas.length;
-    this.temperatura = dispositivoLugar.temperaturas[dim-1].valorTemperatura;
+    this.temperatura = TemperaturaService.temperaturaFinal;
   }
 }

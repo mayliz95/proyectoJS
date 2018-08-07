@@ -18,6 +18,7 @@ export class AdministracionTipoLugarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newTipoLugar=new TipolugarInterface();
     this.usuarioLogueado=UsuarioService.usuarioLogueado;
     this.tipoLugarService.getTiposLugar().subscribe(
       (result:any)=>{
@@ -26,9 +27,17 @@ export class AdministracionTipoLugarComponent implements OnInit {
     )
   }
   addFieldValue() {
-    this.tipoLugarService.postNuevoTipoLugar(this.newTipoLugar);
-    this.tiposLugar.push(this.newTipoLugar);
-    this.newTipoLugar = null;
+    this.tipoLugarService.postNuevoTipoLugar(this.newTipoLugar).subscribe(
+      (result:any)=>{
+        this.tipoLugarService.getTiposLugar().subscribe(
+          (result:any)=>{
+            this.tiposLugar=result;
+          }
+        );
+      }
+    );
+
+    this.newTipoLugar = new TipolugarInterface();
   }
 
   deleteFieldValue(index) {

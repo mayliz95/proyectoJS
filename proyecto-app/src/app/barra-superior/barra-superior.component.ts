@@ -26,7 +26,8 @@ export class BarraSuperiorComponent implements OnInit {
     //this._router.navigate(url);
   }
   salir() {
-
+    const url = ['/inicio'];
+    this._router.navigate(url);
   }
   irAConfiguracionTipoLugar() {
     const url = ['/admtipolugar'];

@@ -1,9 +1,13 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TipolugarService} from "./tipolugar.service";
+import {Temperatura} from "../interfaces/temperatura";
 
 @Injectable()
 export class TemperaturaService {
+
+  static temperaturaFinal: number;
+
   constructor(private http: HttpClient){
   }
 
@@ -15,8 +19,11 @@ export class TemperaturaService {
     headers.append("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin, Access-Control-Allow-Methods");
     return headers;
   }
-  getUltimaTemperatura(idTipoLugar) {
-    let header = TipolugarService.getCommonHeaders();
-    return this.http.get("http://localhost:1337/tipolugar/" + idTipoLugar,{headers: header});
+  getTemperaturaPorIdDispositivo(idDispositivoLugar) {
+    let header = TemperaturaService.getCommonHeaders();
+    return this.http.get("http://localhost:1337/temperatura?sort=id DESC",
+      {headers:header,params:{
+        id_dispositivoLugar: idDispositivoLugar
+      }});
   }
 }

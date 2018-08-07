@@ -41,7 +41,7 @@
                   </mat-toolbar>
                   <div *ngFor="let dispositivo of dispositivosPrueba">
                     <div *ngIf="lugar.id === getIdLugarDispositivoLugar(dispositivo.dispositivoLugares, lugar.id)"
-                         (mousemove)="obtenerUltimaTemperatura(lugar.id, dispositivo.id)">
+                         (mousemove)="obtenerUltimaTemperatura(dispositivo, lugar.id)">
                       <mat-card class="mat-elevation-z0" style="border-style: solid; border-width: 1px; border-color: #3f51b5">
                         <mat-card-title style="font-size: 18px">
                           {{dispositivo.nombre}}
@@ -51,7 +51,7 @@
                             <div class="col-sm-3">
                               <mat-card-subtitle>Temperatura</mat-card-subtitle>
                             </div>
-                            <div class="col-sm-3">
+                            <div *ngIf="temperatura" class="col-sm-3">
                               <input style="width: 100px"  type="text" value={{temperatura}}>
                             </div>
                             <div class="col-sm-3">

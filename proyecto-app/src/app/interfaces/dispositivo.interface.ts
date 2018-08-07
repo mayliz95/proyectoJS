@@ -1,6 +1,6 @@
 import {DispositivoLugar} from "./dispositivoLugar";
 
-export interface DispositivoInterface {
+export class DispositivoInterface {
   id: number;
   nombre: string;
   id_usuario: number;

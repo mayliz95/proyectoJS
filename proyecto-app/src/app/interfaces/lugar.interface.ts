@@ -1,4 +1,4 @@
-export interface LugarInterface {
+export class LugarInterface {
   id: number;
   nombreLugar: string;
   id_usuario: number;

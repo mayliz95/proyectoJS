@@ -1,6 +1,6 @@
 import {LugarInterface} from "./lugar.interface";
 
-export interface TipolugarInterface {
+export class TipolugarInterface {
   id: number;
   nombre: string;
   lugares: LugarInterface[];

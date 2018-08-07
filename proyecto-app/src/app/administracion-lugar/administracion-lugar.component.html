@@ -19,12 +19,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let tipoLugar of dispositivos; let i = index">
+      <tr *ngFor="let tipoLugar of lugares; let i = index">
         <td>
-          <input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/>
+          <input matInput [(ngModel)]="tipoLugar.id_tipolugar" class="form-control" type="text" name="{{tipoLugar.id_tipolugar}}"/>
         </td>
         <td>
-          <input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/>
+          <input matInput [(ngModel)]="tipoLugar.nombreLugar" class="form-control" type="text" name="{{tipoLugar.nombreLugar}}"/>
         </td>
         <td>
           <button mat-raised-button color="primary" class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
@@ -32,11 +32,11 @@
       </tr>
       <tr>
         <td>
-          <input matInput class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newDispositivo.nombre"
+          <input matInput class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newLugar.id_tipolugar"
                  name="newAttributeCode"/>
         </td>
         <td>
-          <input matInput class="form-control" type="text" id="newAttributeCodeName" [(ngModel)]="newDispositivo.nombre"
+          <input matInput class="form-control" type="text" id="newAttributeCodeName" [(ngModel)]="newLugar.nombreLugar"
                  name="newAttributeCode"/>
         </td>
         <td>

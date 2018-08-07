@@ -20,6 +20,7 @@ export class AdministracionDispositivoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newDispositivo=new DispositivoInterface();
     this.usuarioLogueado=UsuarioService.usuarioLogueado;
     this.dipositivoService.getDispositivosPorUsuario(this.usuarioLogueado.id).subscribe(
       (result:any)=>{
@@ -30,8 +31,12 @@ export class AdministracionDispositivoComponent implements OnInit {
   addFieldValue() {
     this.newDispositivo.id_usuario=this.usuarioLogueado.id;
     this.dipositivoService.postNuevoDispositivo(this.newDispositivo);
-    this.dispositivos.push(this.newDispositivo);
-    this.newDispositivo = null;
+    this.dipositivoService.getDispositivosPorUsuario(this.usuarioLogueado.id).subscribe(
+      (result:any)=>{
+        this.dispositivos=result;
+      }
+    )
+    this.newDispositivo = new DispositivoInterface();
   }
 
   deleteFieldValue(index) {

@@ -20,6 +20,7 @@ export class AdministracionLugarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newLugar=new LugarInterface();
     this.usuarioLogueado=UsuarioService.usuarioLogueado;
     this.lugarService.getLugaresPorUsuario(this.usuarioLogueado.id).subscribe(
       (result:any)=>{
