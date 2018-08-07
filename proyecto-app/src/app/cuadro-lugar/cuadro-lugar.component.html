@@ -13,7 +13,7 @@
     <form>
       <mat-form-field style="width: 100%; font-size: 16px">
         <mat-select placeholder="Tipo de Lugar" [formControl]="tipoLugarSeleccionado" name="tipoLugar">
-          <mat-option *ngFor="let tipoLugar of tiposLugar" [value]="tipoLugar" c>
+          <mat-option *ngFor="let tipoLugar of dispositivos" [value]="tipoLugar" c>
             {{tipoLugar.nombre}}
           </mat-option>
         </mat-select>

@@ -20,6 +20,15 @@ export class TipolugarService {
     let header = TipolugarService.getCommonHeaders();
     return this.http.get("http://localhost:1337/tipolugar/" + idTipoLugar,{headers: header});
   }
+  getTiposLugar(){
+    let header = TipolugarService.getCommonHeaders();
+    return this.http.get("http://localhost:1337/tipolugar/",{headers:header});
+  }
+  postNuevoTipoLugar(tipoLugar:TipolugarInterface){
+    let header = TipolugarService.getCommonHeaders();
+    return this.http.post("http://localhost:1337/tipolugar",
+      {nombre:tipoLugar.nombre},{headers: header});
+  }
   /*getUsuarios() {
     let header = UsuarioService.getCommonHeaders();
     return this.http.get("http://localhost:1337/usuario",{headers: header});
