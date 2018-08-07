@@ -5,15 +5,10 @@
 <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-8">
-    <!--div *ngFor="let usuario of usuarios">
-      <button mat-stroked-button (click)="loguearUsuario(usuario)">
-        {{usuario.nombreUsuario}}
-      </button>
-    </div-->
     <form>
       <mat-form-field style="width: 100%; font-size: 16px">
         <mat-select placeholder="Tipo de Lugar" [formControl]="tipoLugarSeleccionado" name="tipoLugar">
-          <mat-option *ngFor="let tipoLugar of dispositivos" [value]="tipoLugar" c>
+          <mat-option *ngFor="let tipoLugar of tiposLugar" [value]="tipoLugar">
             {{tipoLugar.nombre}}
           </mat-option>
         </mat-select>
