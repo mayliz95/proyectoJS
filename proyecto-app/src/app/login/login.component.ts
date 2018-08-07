@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         if(this.usuarioConectado[0].contraseña===password){
           console.log('Correcto');
           UsuarioService.usuarioLogueado=this.usuarioConectado[0];
-          const url = ['/admlugar'];
+          const url = ['/home'];
           this._router.navigate(url);
         }
         else{

@@ -9,6 +9,7 @@ import {DispositivoInterface} from "../interfaces/dispositivo.interface";
 import {DispositivoLugarService} from "../Servicios/dispositivoLugar.service";
 import {DispositivoLugar} from "../interfaces/dispositivoLugar";
 import {LugarInterface} from "../interfaces/lugar.interface";
+import {UsuarioInterface} from "../interfaces/usuario.interface";
 
 @Component({
   selector: 'app-cuadro-lugar',
@@ -41,10 +42,10 @@ export class CuadroLugarComponent implements OnInit {
       }
     );
   }
-  loguearUsuario(usuario: Usuario) {   //Traer LugaresPorUsuario
-    UsuarioService.usuarioLogeado = usuario;
-    this.lugaresDeUsuario = UsuarioService.usuarioLogeado.lugares;
-    this.dispositivosDelUsuario = UsuarioService.usuarioLogeado.dispositivos;
+  loguearUsuario(usuario: UsuarioInterface) {   //Traer LugaresPorUsuario
+    UsuarioService.usuarioLogueado = usuario;
+    this.lugaresDeUsuario = UsuarioService.usuarioLogueado.lugares;
+    this.dispositivosDelUsuario = UsuarioService.usuarioLogueado.dispositivos;
     this.obtenerIdTipoLugarPorUsuario();
     this.obtenerIdDispositivoLugarPorUsuario();
   }
@@ -84,7 +85,7 @@ export class CuadroLugarComponent implements OnInit {
     this.idTiposLugar.forEach(function (element) {
         serviceTipoLugarAux.getTipoLugarPorId(element).subscribe(
           (result:TipolugarInterface)=>{
-            result.lugares = result.lugares.filter(lugar => lugar.id_usuario === UsuarioService.usuarioLogeado.id);
+            result.lugares = result.lugares.filter(lugar => lugar.id_usuario === UsuarioService.usuarioLogueado.id);
             aux.push(result);
           })
       }

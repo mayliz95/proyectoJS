@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material";
 import {UsuarioService} from "../Servicios/usuario.service";
+import {Router} from "@angular/router";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -34,7 +35,7 @@ export class SignupComponent implements OnInit {
        urlImagen: 'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-boy-389cd1eb1d503149-512x512.png'}
   ];
 
-  constructor(private _usuarioService: UsuarioService) {
+  constructor(private _usuarioService: UsuarioService, private _router: Router) {
   }
   ngOnInit() {
   }
@@ -45,7 +46,10 @@ export class SignupComponent implements OnInit {
     console.log(this.nombreControl.value + " " + this.correoControl.value + " " + this.contrasenaControl.value + " " + this.urlImgSeleccionada);
     this._usuarioService.postNuevoUsuario(this.nombreControl.value, this.correoControl.value, this.urlImgSeleccionada, this.contrasenaControl.value).subscribe();
   }
-  limpiar() {}
+  cancelar() {
+    const url = ['/inicio'];
+    this._router.navigate(url);
+  }
 }
 
 

@@ -5,7 +5,6 @@ import {UsuarioInterface} from "../interfaces/usuario.interface";
 @Injectable()
 export class UsuarioService {
 
-  static usuarioLogeado: Usuario;
   static usuarioLogueado:UsuarioInterface;
 
   constructor(private http: HttpClient){

@@ -1,24 +1,30 @@
 <mat-toolbar color="primary" style="height: 50px">
    <span>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="irAHome()">
       <mat-icon style="">home</mat-icon>
     </button>
 </span>
   <span style="flex: 4 1 auto"></span>
   <span>
-    <button mat-raised-button color="primary" class="mat-elevation-z0">
+    <button mat-raised-button color="primary" class="mat-elevation-z0" (click)="irAugar()">
       Lugares
-    </button>
-  </span>
-  <span>
-    <button mat-raised-button color="primary" class="mat-elevation-z0">
-      Tiempo Real
     </button>
   </span>
   <span>
     <button mat-raised-button color="primary" class="mat-elevation-z0">
       Estadísticas
     </button>
+  </span>
+  <span>
+    <button mat-button [matMenuTriggerFor]="menu">Configuración</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item style="font-size: 14px" (click)="irAConfiguracionTipoLugar()">Tipo Lugar</button>
+      <button mat-menu-item style="font-size: 14px" (click)="irAConfiguracionLugar()">Lugar</button>
+      <button mat-menu-item style="font-size: 14px" (click)="irAConfiguracionDispositivo()">Dispositivo</button>
+    </mat-menu>
+    <!--button mat-raised-button color="primary" class="mat-elevation-z0">
+      Configuración
+    </button-->
   </span>
   <span>
     <button mat-raised-button color="primary" class="mat-elevation-z0">
