@@ -36,18 +36,18 @@ export class CuadroLugarComponent implements OnInit {
               private _dispositivoLugarService: DispositivoLugarService) {}
 
   ngOnInit() {
-    this._usuarioService.getUsuarios().subscribe(
+    /*this._usuarioService.getUsuarios().subscribe(
       (result:any)=>{
         this.usuarios = result;
       }
-    );
-  }
-  loguearUsuario(usuario: UsuarioInterface) {   //Traer LugaresPorUsuario
-    UsuarioService.usuarioLogueado = usuario;
+    );*/
     this.lugaresDeUsuario = UsuarioService.usuarioLogueado.lugares;
     this.dispositivosDelUsuario = UsuarioService.usuarioLogueado.dispositivos;
     this.obtenerIdTipoLugarPorUsuario();
     this.obtenerIdDispositivoLugarPorUsuario();
+  }
+  loguearUsuario(usuario: UsuarioInterface) {   //Traer LugaresPorUsuario
+    //UsuarioService.usuarioLogueado = usuario;
   }
   obtenerIdTipoLugarPorUsuario() {
     let aux = [];
