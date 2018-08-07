@@ -1,5 +1,7 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {TipolugarInterface} from "../interfaces/tipolugar.interface";
+import {DispositivoInterface} from "../interfaces/dispositivo.interface";
 
 @Injectable()
 export class DispositivoService {
@@ -17,5 +19,16 @@ export class DispositivoService {
   getDispositivoPorId(idDispositivo) {
     let header = DispositivoService.getCommonHeaders();
     return this.http.get("http://localhost:1337/dispositivo/" + idDispositivo,{headers: header});
+  }
+  getDispositivosPorUsuario(idUsuario){
+    let header = DispositivoService.getCommonHeaders();
+    return this.http.get("http://localhost:1337/dispositivo/",{headers:header,params:{
+        id_usuario: idUsuario
+      }});
+  }
+  postNuevoDispositivo(dispositivo:DispositivoInterface){
+    let header = DispositivoService.getCommonHeaders();
+    return this.http.post("http://localhost:1337/dispositivo",
+      {nombre:dispositivo.nombre,id_usuario:dispositivo.id_usuario},{headers: header});
   }
 }
