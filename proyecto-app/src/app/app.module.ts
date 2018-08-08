@@ -22,7 +22,6 @@ import { AdministracionDispositivoComponent } from './administracion-dispositivo
 import { HomeComponent } from './home/home.component';
 import { InicioComponent } from './inicio/inicio.component';
 import {ChartsModule} from "ng2-charts";
-import { TiempoRealComponent } from './tiempo-real/tiempo-real.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { TiempoRealComponent } from './tiempo-real/tiempo-real.component';
     AdministracionLugarComponent,
     AdministracionDispositivoComponent,
     HomeComponent,
-    InicioComponent,
-    TiempoRealComponent
+    InicioComponent
   ],
   imports: [
     BrowserModule,

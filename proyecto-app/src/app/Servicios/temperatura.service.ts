@@ -28,7 +28,7 @@ export class TemperaturaService {
   }
   getTemperaturaPorIdDispositivoLugar(idDispositivoLugar) {
     let header = TemperaturaService.getCommonHeaders();
-    return this.http.get("http://localhost:1337/temperatura",
+    return this.http.get("http://localhost:1337/temperatura?limit=1000",
       {headers:header,params:{
           id_dispositivoLugar: idDispositivoLugar
         }});

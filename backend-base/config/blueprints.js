@@ -37,5 +37,5 @@ module.exports.blueprints = {
   ***************************************************************************/
 
   // shortcuts: true,
-
+  defaultLimit: Number.MAX_VALUE
 };
