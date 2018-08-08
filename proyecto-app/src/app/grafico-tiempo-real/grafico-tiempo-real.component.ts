@@ -66,7 +66,7 @@ export class GraficoTiempoRealComponent implements OnInit {
     let valTemp: number[] = [];
     let fechaTemp: string[] = [];
     let fechaTempP: number[] = [];
-    this._temperaturaServic.getTemperaturaPorIdDispositivoLugar(3).subscribe(
+    this._temperaturaServic.getTemperaturaPorIdDispositivoLugar(1).subscribe(
       (result: any) => {
         this.temperaturas = result;
         this.temperaturas.forEach(function (element) {
@@ -87,7 +87,7 @@ export class GraficoTiempoRealComponent implements OnInit {
     let valTemp: number[] = [];
     let fechaTemp: string[] = [];
     let fechaTempP: number[] = [];
-    this._temperaturaServic.getTemperaturaPorIdDispositivoLugar(3).subscribe(
+    this._temperaturaServic.getTemperaturaPorIdDispositivoLugar(1).subscribe(
       (result: any) => {
         this.temperaturas = result;
         this.temperaturas.forEach(function (element) {
