@@ -63,12 +63,12 @@ export class GraficoTiempoRealComponent implements OnInit {
   public lineChartType = 'line';
 
   ngOnInit() {
+    
     this.showData();
     this.intervalUpdate = setInterval(function(){
       this.showData();
     }.bind(this), 3000);
   }
-
   // events
   public chartClicked(e: any): void {
     console.log(e);
