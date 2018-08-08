@@ -1,5 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {TipolugarInterface} from "../interfaces/tipolugar.interface";
+import {LugarInterface} from "../interfaces/lugar.interface";
 
 @Injectable()
 export class LugarService {
@@ -16,8 +18,19 @@ export class LugarService {
   }
   getLugaresPorUsuario(idUsuario){
     let header = LugarService.getCommonHeaders();
-    return this.http.get("http://localhost:1337/lugar/",{headers:header,params:{
+    return this.http.get("http://localhost:1337/lugar",{headers:header,params:{
         id_usuario: idUsuario
       }});
+  }
+  postNuevoLugar(lugar:LugarInterface){
+    let header = LugarService.getCommonHeaders();
+    return this.http.post("http://localhost:1337/lugar",
+      {nombre:lugar.nombre,
+             id_tipolugar:lugar.id_tipolugar.id,
+              id_usuario:lugar.id_usuario.id},{headers: header});
+  }
+  deleteLugar(lugar:LugarInterface){
+    let header = LugarService.getCommonHeaders();
+    return this.http.delete("http://localhost:1337/lugar/"+lugar.id,{headers:header})
   }
 }

@@ -29,6 +29,10 @@ export class TipolugarService {
     return this.http.post("http://localhost:1337/tipolugar",
       {nombre:tipoLugar.nombre},{headers: header});
   }
+  deleteTipoLugar(tipoLugar:TipolugarInterface){
+    let header = TipolugarService.getCommonHeaders();
+    return this.http.delete("http://localhost:1337/tipolugar/"+tipoLugar.id,{headers:header})
+  }
   /*getUsuarios() {
     let header = UsuarioService.getCommonHeaders();
     return this.http.get("http://localhost:1337/usuario",{headers: header});

@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
-    <h1>Dispositivo</h1>
+    <h1>Relación Dispositivo Lugar</h1>
   </div>
   <div class="col-sm-4"></div>
 </div>
@@ -14,22 +14,42 @@
       <thead>
       <tr>
         <th>Nombre Dispositivo</th>
+        <th>Nombre Lugar</th>
         <th>Accion</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let tipoLugar of dispositivos; let i = index">
+      <tr *ngFor="let tipoLugar of dispositivosLugares; let i = index">
         <td>
-          <input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/>
+          <input matInput [(ngModel)]="tipoLugar.id_dispositivo.nombre" class="form-control" type="text" name="{{tipoLugar.id_dispositivo.nombre}}"/>
         </td>
         <td>
-          <button mat-raised-button color="primary" class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
+          <input matInput [(ngModel)]="tipoLugar.id_lugar.nombre" class="form-control" type="text" name="{{tipoLugar.id_lugar.nombre}}"/>
+        </td>
+        <td>
+          <button mat-raised-button color="primary" class="btn btn-default" type="button" (click)="deleteFieldValue(tipoLugar)">Delete</button>
         </td>
       </tr>
       <tr>
         <td>
-          <input matInput class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newDispositivo.nombre"
-                 name="newAttributeCode"/>
+          <mat-form-field>
+            <mat-select placeholder="Dispositivo" [(value)]="newDispositivoLugar.id_dispositivo">
+              <mat-option *ngFor="let dispositivo of dispositivos" [value]="dispositivo">
+                {{dispositivo.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/-->
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-select placeholder="Lugar" [(value)]="newDispositivoLugar.id_lugar">
+              <mat-option *ngFor="let lugar of lugares" [value]="lugar">
+                {{lugar.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/-->
         </td>
         <td>
           <button mat-raised-button color="primary" class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>

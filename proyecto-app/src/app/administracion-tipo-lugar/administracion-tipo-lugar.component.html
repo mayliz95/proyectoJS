@@ -20,10 +20,10 @@
       <tbody>
       <tr *ngFor="let tipoLugar of tiposLugar; let i = index">
         <td>
-          <input matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/>
+          <input disabled="true" matInput [(ngModel)]="tipoLugar.nombre" class="form-control" type="text" name="{{tipoLugar.nombre}}"/>
         </td>
         <td>
-          <button mat-raised-button color="primary" class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
+          <button mat-raised-button color="primary" class="btn btn-default" type="button" (click)="deleteFieldValue(tipoLugar)">Delete</button>
         </td>
       </tr>
       <tr>

@@ -12,7 +12,9 @@ import {InicioComponent} from "./inicio/inicio.component";
 
 
 const routes: Routes = [
+
   {path: 'inicio', component: InicioComponent},
+  {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'lugar', component: CuadroLugarComponent},
   {path: 'admtipolugar', component: AdministracionTipoLugarComponent},

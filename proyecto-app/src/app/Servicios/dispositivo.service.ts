@@ -22,7 +22,7 @@ export class DispositivoService {
   }
   getDispositivosPorUsuario(idUsuario){
     let header = DispositivoService.getCommonHeaders();
-    return this.http.get("http://localhost:1337/dispositivo/",{headers:header,params:{
+    return this.http.get("http://localhost:1337/dispositivo",{headers:header,params:{
         id_usuario: idUsuario
       }});
   }

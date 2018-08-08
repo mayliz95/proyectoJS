@@ -89,7 +89,7 @@ export class CuadroLugarComponent implements OnInit {
     this.idTiposLugar.forEach(function (element) {
         serviceTipoLugarAux.getTipoLugarPorId(element).subscribe(
           (result:TipolugarInterface)=>{
-            result.lugares = result.lugares.filter(lugar => lugar.id_usuario === UsuarioService.usuarioLogueado.id);
+            result.lugares = result.lugares.filter(lugar => lugar.id_usuario.id === UsuarioService.usuarioLogueado.id);
             aux.push(result);
           })
       }
