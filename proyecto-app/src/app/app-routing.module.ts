@@ -9,6 +9,7 @@ import {AdministracionLugarComponent} from "./administracion-lugar/administracio
 import {AdministracionDispositivoComponent} from "./administracion-dispositivo/administracion-dispositivo.component";
 import {HomeComponent} from "./home/home.component";
 import {InicioComponent} from "./inicio/inicio.component";
+import {TiempoRealComponent} from "./tiempo-real/tiempo-real.component";
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'grafico', component: GraficoTiempoRealComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'admlugar', component: AdministracionLugarComponent},
-  {path: 'admdispositivo', component: AdministracionDispositivoComponent}
+  {path: 'admdispositivo', component: AdministracionDispositivoComponent},
+  {path: 'real', component: TiempoRealComponent}
 ];
 
 @NgModule({
