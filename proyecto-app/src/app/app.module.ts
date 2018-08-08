@@ -21,6 +21,7 @@ import { AdministracionLugarComponent } from './administracion-lugar/administrac
 import { AdministracionDispositivoComponent } from './administracion-dispositivo/administracion-dispositivo.component';
 import { HomeComponent } from './home/home.component';
 import { InicioComponent } from './inicio/inicio.component';
+import {ChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { InicioComponent } from './inicio/inicio.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatMenuModule
+    MatMenuModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

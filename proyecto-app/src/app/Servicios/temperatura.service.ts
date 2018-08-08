@@ -19,11 +19,18 @@ export class TemperaturaService {
     headers.append("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin, Access-Control-Allow-Methods");
     return headers;
   }
-  getTemperaturaPorIdDispositivo(idDispositivoLugar) {
+  getTemperaturaPorIdDispositivoLugarDescendente(idDispositivoLugar) {
     let header = TemperaturaService.getCommonHeaders();
     return this.http.get("http://localhost:1337/temperatura?sort=id DESC",
       {headers:header,params:{
         id_dispositivoLugar: idDispositivoLugar
       }});
+  }
+  getTemperaturaPorIdDispositivoLugar(idDispositivoLugar) {
+    let header = TemperaturaService.getCommonHeaders();
+    return this.http.get("http://localhost:1337/temperatura",
+      {headers:header,params:{
+          id_dispositivoLugar: idDispositivoLugar
+        }});
   }
 }

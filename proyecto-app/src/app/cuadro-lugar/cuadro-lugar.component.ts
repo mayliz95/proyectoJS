@@ -115,7 +115,7 @@ export class CuadroLugarComponent implements OnInit {
       if(element.id_lugar === idLugar){
         idDispoLugar = element.id;
         console.log(idDispoLugar);
-        serviceTemperatura.getTemperaturaPorIdDispositivo(idDispoLugar).subscribe(
+        serviceTemperatura.getTemperaturaPorIdDispositivoLugarDescendente(idDispoLugar).subscribe(
           (result: Temperatura[]) => {
             TemperaturaService.temperaturaFinal = result[0].valorTemperatura;
           }
