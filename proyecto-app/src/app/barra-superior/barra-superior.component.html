@@ -10,11 +10,11 @@
       Lugares
     </button>
   </span>
-  <!--span>
-    <button mat-raised-button color="primary" class="mat-elevation-z0">
-      Estadísticas
+  <span>
+    <button mat-raised-button color="primary" class="mat-elevation-z0" (click)="irATiempoReal()">
+      Tiempo Real
     </button>
-  </span-->
+  </span>
   <span>
     <button mat-button [matMenuTriggerFor]="menu">Configuración</button>
     <mat-menu #menu="matMenu">

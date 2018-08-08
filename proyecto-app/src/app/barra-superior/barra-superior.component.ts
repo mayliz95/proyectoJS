@@ -21,9 +21,9 @@ export class BarraSuperiorComponent implements OnInit {
     const url = ['/home'];
     this._router.navigate(url);
   }
-  irAEstadisTicas() {
-    //const url = ['/'];
-    //this._router.navigate(url);
+  irATiempoReal() {
+    const url = ['/grafico'];
+    this._router.navigate(url);
   }
   salir() {
     const url = ['/inicio'];

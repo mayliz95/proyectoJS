@@ -12,6 +12,7 @@ import {LugarInterface} from "../interfaces/lugar.interface";
 import {UsuarioInterface} from "../interfaces/usuario.interface";
 import {TemperaturaService} from "../Servicios/temperatura.service";
 import {Temperatura} from "../interfaces/temperatura";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cuadro-lugar',
@@ -21,7 +22,7 @@ import {Temperatura} from "../interfaces/temperatura";
 })
 export class CuadroLugarComponent implements OnInit {
 
-  usuarios: Array<Usuario>;
+  usuarioLogueado: UsuarioInterface;
   lugaresDeUsuario;
   dispositivosDelUsuario;
   idTiposLugar = [];
@@ -36,7 +37,8 @@ export class CuadroLugarComponent implements OnInit {
               private _tipolugarService: TipolugarService,
               private _dispositivoService: DispositivoService,
               private _dispositivoLugarService: DispositivoLugarService,
-              private _temperaturaServic: TemperaturaService) {}
+              private _temperaturaServic: TemperaturaService,
+              private _router: Router) {}
 
   ngOnInit() {
     /*this._usuarioService.getUsuarios().subscribe(
@@ -44,10 +46,16 @@ export class CuadroLugarComponent implements OnInit {
         this.usuarios = result;
       }
     );*/
-    this.lugaresDeUsuario = UsuarioService.usuarioLogueado.lugares;
-    this.dispositivosDelUsuario = UsuarioService.usuarioLogueado.dispositivos;
-    this.obtenerIdTipoLugarPorUsuario();
-    this.obtenerIdDispositivoLugarPorUsuario();
+    this.usuarioLogueado = UsuarioService.usuarioLogueado;
+    if (this.usuarioLogueado) {
+      this.lugaresDeUsuario = UsuarioService.usuarioLogueado.lugares;
+      this.dispositivosDelUsuario = UsuarioService.usuarioLogueado.dispositivos;
+      this.obtenerIdTipoLugarPorUsuario();
+      this.obtenerIdDispositivoLugarPorUsuario();
+    }else {
+      const url = ['/login'];
+      this._router.navigate(url);
+    }
   }
   loguearUsuario(usuario: UsuarioInterface) {   //Traer LugaresPorUsuario
     //UsuarioService.usuarioLogueado = usuario;
@@ -89,9 +97,16 @@ export class CuadroLugarComponent implements OnInit {
     this.idTiposLugar.forEach(function (element) {
         serviceTipoLugarAux.getTipoLugarPorId(element).subscribe(
           (result:TipolugarInterface)=>{
-            result.lugares = result.lugares.filter(lugar => lugar.id_usuario.id === UsuarioService.usuarioLogueado.id);
+            result.lugares = result.lugares.filter((lugar:any) => {
+              let usuarioAux:UsuarioInterface=new UsuarioInterface();
+              usuarioAux.id=lugar.id_usuario;
+              lugar.id_usuario=usuarioAux;
+              if(lugar.id_usuario.id == UsuarioService.usuarioLogueado.id){
+                return lugar;
+              }
+            });
             aux.push(result);
-          })
+          });
       }
     );
     this.tiposLugar = aux;
