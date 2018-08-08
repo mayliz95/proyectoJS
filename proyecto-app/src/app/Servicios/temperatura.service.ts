@@ -2,11 +2,14 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TipolugarService} from "./tipolugar.service";
 import {Temperatura} from "../interfaces/temperatura";
+import {BehaviorSubject} from "rxjs/index";
 
 @Injectable()
 export class TemperaturaService {
 
   static temperaturaFinal: number;
+  private fuenteMensaje = new BehaviorSubject<any>([]);
+  mensajeActual = this.fuenteMensaje.asObservable();
 
   constructor(private http: HttpClient){
   }
@@ -28,9 +31,12 @@ export class TemperaturaService {
   }
   getTemperaturaPorIdDispositivoLugar(idDispositivoLugar) {
     let header = TemperaturaService.getCommonHeaders();
-    return this.http.get("http://localhost:1337/temperatura",
+    return this.http.get("http://localhost:1337/temperatura?limit=1000",
       {headers:header,params:{
           id_dispositivoLugar: idDispositivoLugar
         }});
+  }
+  cambiarMensaje(mensaje) {
+    this.fuenteMensaje.next(mensaje);
   }
 }
