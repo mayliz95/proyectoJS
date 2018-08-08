@@ -59,8 +59,8 @@
                             </div>
                             <div class="col-sm-3">
                               <!--button mat-raised-button color="primary" class="mat-elevation-z0"></button-->
-                              <input matInput type="color" style="width: 50px;" value="#292B70" *ngIf="temperatura <= 30">
-                              <input matInput type="color" style="width: 50px;" value="#9B101A" *ngIf="temperatura > 30">
+                              <input matInput type="color" style="width: 50px;" value="#292B70" *ngIf="temperatura < 30">
+                              <input matInput type="color" style="width: 50px;" value="#9B101A" *ngIf="temperatura >= 30">
                             </div>
                           </div>
                         </mat-card-content>
