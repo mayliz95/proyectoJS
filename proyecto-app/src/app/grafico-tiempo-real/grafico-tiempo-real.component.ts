@@ -23,8 +23,8 @@ export class GraficoTiempoRealComponent implements OnInit {
   ) {
   }
   temperaturas: Temperatura[] = [];
-  valoresTemperatura: number[] = [];
-  fechaTemperatura: string[] = [];
+
+  private intervalUpdate: any = null;
 
   public lineChartData: Array<any> = [
     {data: this.temperaturas, label: 'Sensor'}
@@ -63,45 +63,11 @@ export class GraficoTiempoRealComponent implements OnInit {
   public lineChartType = 'line';
 
   ngOnInit() {
-    let valTemp: number[] = [];
-    let fechaTemp: string[] = [];
-    let fechaTempP: number[] = [];
-    this._temperaturaServic.getTemperaturaPorIdDispositivoLugar(1).subscribe(
-      (result: any) => {
-        this.temperaturas = result;
-        this.temperaturas.forEach(function (element) {
-            let fecha = new Date(element.fecha);
-            fechaTemp.push(element.fecha.replace("T","\n"));
-            valTemp.push(element.valorTemperatura);
-          }
-        )
-      }
-    );
-    this.valoresTemperatura =  valTemp;
-    this.fechaTemperatura = fechaTemp;
-    this.lineChartData[0].data = this.valoresTemperatura;
-    this.lineChartLabels = this.fechaTemperatura;
-  }
-
-  obtenerTemperaturas() {
-    let valTemp: number[] = [];
-    let fechaTemp: string[] = [];
-    let fechaTempP: number[] = [];
-    this._temperaturaServic.getTemperaturaPorIdDispositivoLugar(1).subscribe(
-      (result: any) => {
-        this.temperaturas = result;
-        this.temperaturas.forEach(function (element) {
-          let fecha = new Date(element.fecha);
-          fechaTemp.push(element.fecha.replace("T","\n"));
-          valTemp.push(element.valorTemperatura);
-          }
-        )
-      }
-    );
-    this.valoresTemperatura =  valTemp;
-    this.fechaTemperatura = fechaTemp;
-    this.lineChartData[0].data = this.valoresTemperatura;
-    this.lineChartLabels = this.fechaTemperatura;
+    
+    this.showData();
+    this.intervalUpdate = setInterval(function(){
+      this.showData();
+    }.bind(this), 3000);
   }
   // events
   public chartClicked(e: any): void {
@@ -109,5 +75,33 @@ export class GraficoTiempoRealComponent implements OnInit {
   }
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  private showData(): void {
+    let valTemp = [];
+    let fechaLabels = [];
+    this._temperaturaServic.getTemperaturaPorIdDispositivoLugar(1).subscribe(
+      (response:any) => {
+        this.temperaturas = response;
+        console.log(response);
+        this.temperaturas.forEach(function (element) {
+            //let fecha = new Date(element.fecha);
+            let chartTime: any = new Date(element.fecha);
+            chartTime = chartTime.getHours() + ':' + ((chartTime.getMinutes() < 10) ? '0' + chartTime.getMinutes() : chartTime.getMinutes()) + ':' + ((chartTime.getSeconds() < 10) ? '0' + chartTime.getSeconds() : chartTime.getSeconds());
+            if(fechaLabels.length > 15) {
+              fechaLabels.shift();
+              valTemp.shift();
+            }
+            fechaLabels.push(chartTime);
+            valTemp.push(element.valorTemperatura);
+          }
+        );
+        this.lineChartLabels = fechaLabels;
+        this.lineChartData[0].data = valTemp;
+        //console.log(this.lineChartData[0].data)
+        //this.chart.update();
+      }, error => {
+        console.error("ERROR: Unexpected response");
+      });
   }
 }
