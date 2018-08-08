@@ -30,11 +30,11 @@
               <input matInput placeholder="Correo" class="form-control" formControlName="email">
             </mat-form-field>
             <!--/label-->
-            <div *ngIf="loginForm.get('email').errors" class="alert alert-danger">
+            <div *ngIf="loginForm.get('email').errors && loginForm.get('email').dirty" class="alert alert-danger">
               <div *ngIf="loginForm.get('email').errors['required']">
                 Email requerido
               </div>
-              <div *ngIf="loginForm.get('email').errors['email']">
+              <div *ngIf="loginForm.get('email').errors['email'] ">
                 Email incorrecto
               </div>
             </div>
@@ -45,8 +45,8 @@
               <input matInput placeholder="Password" type="password" class="form-control" formControlName="password">
             </mat-form-field>
             <!--/label-->
-            <div *ngIf="loginForm.get('password').errors" class="alert alert-danger">
-              <div *ngIf="loginForm.get('password').errors['required']">
+            <div *ngIf="loginForm.get('password').errors && loginForm.get('password').dirty" class="alert alert-danger">
+              <div *ngIf="loginForm.get('password').errors['required'] ">
                 Password requerido
               </div>
               <div *ngIf="loginForm.get('password').errors['minlength']">
